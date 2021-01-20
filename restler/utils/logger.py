@@ -249,6 +249,9 @@ def raw_network_logging(data):
     @rtype : None
 
     """
+    if data is None:
+        return
+
     # To make sure binary data are not flushed out in the logs we drop anything
     # around CUSTOM_BOUNDARY, which is the binary payload
     if ('octet-stream' in data) and ('_CUSTOM_BOUNDARY_' in data):
